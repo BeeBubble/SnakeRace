@@ -108,3 +108,72 @@ func(*args1, **kw1)
 
 # 递归函数
 
+
+def fact(n):
+    if n == 1:
+        return 1
+    return n * fact(n - 1)
+
+
+print fact(1)
+print fact(5)
+print fact(10)
+print fact(100)
+# print fact(1000)
+
+# 尾递归优化
+import sys
+
+
+class TailRecurseException:
+    def __init__(self, args, kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+
+def tail_call_optimized(g):
+    """
+    This function decorates a function with tail call
+    optimization. It does this by throwing an exception
+    if it is it's own grandparent, and catching such
+    exceptions to fake the tail call optimization.
+
+    This function fails if the decorated
+    function recurses in a non-tail context.
+    """
+
+    def func(*args, **kwargs):
+        f = sys._getframe()
+        if f.f_back and f.f_back.f_back \
+                and f.f_back.f_back.f_code == f.f_code:
+            raise TailRecurseException(args, kwargs)
+        else:
+            while 1:
+                try:
+                    return g(*args, **kwargs)
+                except TailRecurseException, e:
+                    args = e.args
+                    kwargs = e.kwargs
+
+    func.__doc__ = g.__doc__
+    return func
+
+
+@tail_call_optimized
+def fact2(base, count):
+    if count == 1:
+        return base
+    return fact2(base * (count - 1), count - 1)
+
+
+print fact2(1000, 1000)
+
+
+@tail_call_optimized
+def fact_iter(product, count, max):
+    if count > max:
+        return product
+    return fact_iter(product * count, count + 1, max)
+
+
+print fact_iter(1, 1, 1000)
