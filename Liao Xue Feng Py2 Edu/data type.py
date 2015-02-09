@@ -28,3 +28,4 @@ print 'a='+a, 'b='+b
 # 除法
 print 10/3
 print 10.0/3
+
