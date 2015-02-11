@@ -177,3 +177,16 @@ def fact_iter(product, count, max):
 
 
 print fact_iter(1, 1, 1000)
+
+
+# 返回函数
+def lazy_sum(*args):
+    def sum():
+        sum = 0
+        for arg in args:
+            sum+=arg
+        return sum
+    return sum
+f = lazy_sum(1,3,5,7,9)
+print f
+print f()
