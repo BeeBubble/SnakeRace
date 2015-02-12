@@ -167,6 +167,7 @@ def fact2(base, count):
 
 
 print fact2(1000, 1000)
+print fact2(100,100)
 
 
 @tail_call_optimized
