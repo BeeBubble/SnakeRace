@@ -166,8 +166,10 @@ def fact2(base, count):
     return fact2(base * (count - 1), count - 1)
 
 
+
 print fact2(1000, 1000)
 print fact2(100,100)
+print fact2(100,10)
 
 
 @tail_call_optimized
