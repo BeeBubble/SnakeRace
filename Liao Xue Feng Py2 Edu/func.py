@@ -232,3 +232,12 @@ print f1()
 print f2()
 print f3()
 print f4()
+
+# 匿名函数
+# 匿名函数有个限制，就是只能有一个表达式，不用写return，返回值就是该表达式的结果。
+
+print map(lambda x:x*x,[1,2,3,4,5,6,7,8,9])
+
+f = lambda x:x*x
+print f
+print f(2)
