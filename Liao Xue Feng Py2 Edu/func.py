@@ -166,10 +166,9 @@ def fact2(base, count):
     return fact2(base * (count - 1), count - 1)
 
 
-
 print fact2(1000, 1000)
-print fact2(100,100)
-print fact2(100,10)
+print fact2(100, 100)
+print fact2(100, 10)
 
 
 @tail_call_optimized
@@ -187,9 +186,49 @@ def lazy_sum(*args):
     def sum():
         sum = 0
         for arg in args:
-            sum+=arg
+            sum += arg
         return sum
+
     return sum
-f = lazy_sum(1,3,5,7,9)
+
+
+f = lazy_sum(1, 3, 5, 7, 9)
 print f
 print f()
+
+# 闭包
+def count():
+    fs = []
+    for i in range(4):
+        def f():
+            return i * i
+
+        fs.append(f)
+    return fs
+
+
+f1, f2, f3, f4 = count()
+print f1()
+print f2()
+print f3()
+print f4()
+
+
+def count2():
+    fs = []
+    for i in range(4):
+        def f(j):
+            def g():
+                return j * j
+
+            return g
+
+        fs.append(f(i))
+    return fs
+
+
+f1, f2, f3, f4 = count2()
+print f1()
+print f2()
+print f3()
+print f4()
