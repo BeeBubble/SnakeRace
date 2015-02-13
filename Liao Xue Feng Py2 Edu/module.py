@@ -47,11 +47,23 @@ def greeting(name):
         return _private_2(name)
 
 
+import Image
+
+im = Image.open('vic.jpg')
+print im.format, im.size, im.mode
+# print im.thumbnail((200,100))
+# im.save('thumb.jpg','png')
+
+import sys
+
+print sys.path
+
 if __name__ == '__main__':
-    print json.__author__
+    # print json.__author__
     # print json.__all__
-    print json.__doc__
+    # print json.__doc__
     print greeting('awn')
+
     test()
 
 
