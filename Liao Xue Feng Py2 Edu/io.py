@@ -7,9 +7,9 @@ print 'hello,world'
 
 # 打印整数
 print 300
-print 30+300
+print 30 + 300
 
 # 输入
 name = raw_input()
-print 'hello',name
+print 'hello', name
 

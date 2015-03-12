@@ -58,4 +58,4 @@ d = {'x': 'A', 'y': 'B', 'z': 'C'}
 print [k + '=' + v for k, v in d.iteritems()]
 
 L = ['Hello', 'World', 18, 'Apple', None]
-print [key for key in L if isinstance(key,str)]
+print [key for key in L if isinstance(key, str)]

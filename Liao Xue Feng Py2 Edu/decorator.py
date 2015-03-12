@@ -58,7 +58,7 @@ print now3.__name__
 #
 # @log('execute')
 # def f():
-#     pass
+# pass
 def decorator(text='execute'):
     def d(f):
         @functools.wraps(f)

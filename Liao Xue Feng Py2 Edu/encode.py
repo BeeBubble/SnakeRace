@@ -15,4 +15,4 @@ print 'Hello,%s' % 'AAA'
 print '%2d-%012d' % (3, 1)
 print '%.2f' % 3.1415926
 print '''Age:%s.Gender:%s
-growth rate:%s%%''' % (25,True,90)
+growth rate:%s%%''' % (25, True, 90)

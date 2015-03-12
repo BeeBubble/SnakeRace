@@ -6,5 +6,5 @@ print t
 t = (1)
 print t
 
-t = (1,2,3)
+t = (1, 2, 3)
 print t
